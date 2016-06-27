@@ -93,3 +93,33 @@ footer a {
 .slider {
     flex: 0 0 auto;
 }
+.shortDescr {
+    flex: 0 1 auto;
+    display: flex;
+    flex-flow: row nowrap;
+    max-width: 1200px;
+    align-self: center;
+}
+.shortDescr img {
+    flex: 0 1 auto;
+    max-height: 200px;
+}
+.textBlock {
+    flex: 1 1 auto;
+    display: flex;
+    flex-flow: column nowrap;
+}
+.textBlock h1 {
+    flex: 0 1 auto;
+}
+.textBlock p {
+    flex: 0 1 auto;
+}
+.textBlock ul {
+    flex: 0 1 auto;
+    display: flex;
+    flex-flow: column;
+}
+.textBlock ul li a {
+    flex: 0 1 auto;
+}
