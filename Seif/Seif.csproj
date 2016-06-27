@@ -211,6 +211,17 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\font.css" />
+    <Content Include="Content\img\idlgfpngblue.png" />
+    <Content Include="Content\img\logoESSr.png" />
+    <Content Include="Content\img\logoESS_150.png" />
+    <Content Include="Content\img\slider\baner-orgygie.jpg" />
+    <Content Include="Content\img\slider\banner-seyfi-bl.jpg" />
+    <Content Include="Content\img\slider\left-side.jpg" />
+    <Content Include="Content\img\slider\premium_line_news1.jpg" />
+    <Content Include="Content\img\slider\right-side.jpg" />
+    <Content Include="Content\img\slider\shcool&amp;garden.jpg" />
+    <Content Include="Content\img\slider\svar3.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -222,6 +233,18 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="fonts\RobotoBold\RobotoBold.eot" />
+    <Content Include="fonts\RobotoBold\RobotoBold.ttf" />
+    <Content Include="fonts\RobotoBold\RobotoBold.woff" />
+    <Content Include="fonts\RobotoLight\RobotoLight.eot" />
+    <Content Include="fonts\RobotoLight\RobotoLight.ttf" />
+    <Content Include="fonts\RobotoLight\RobotoLight.woff" />
+    <Content Include="fonts\RobotoMedium\RobotoMedium.eot" />
+    <Content Include="fonts\RobotoMedium\RobotoMedium.ttf" />
+    <Content Include="fonts\RobotoMedium\RobotoMedium.woff" />
+    <Content Include="fonts\RobotoRegular\RobotoRegular.eot" />
+    <Content Include="fonts\RobotoRegular\RobotoRegular.ttf" />
+    <Content Include="fonts\RobotoRegular\RobotoRegular.woff" />
     <None Include="Properties\PublishProfiles\ferocon.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />

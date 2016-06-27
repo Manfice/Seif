@@ -1,24 +1,95 @@
-﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+﻿html {
+    min-height: 100%;
+    background-color: whitesmoke;
+    font-family: 'RobotoRegular';
+    display: flex;
+    flex-flow: column nowrap;
 }
-
-/* Set padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+body {
+    margin: 0;
+    padding: 0;
+    flex: auto;
+    display: flex;
+    flex-direction: column;
 }
-
-/* Override the default bootstrap behavior where horizontal description lists 
-   will truncate terms that are too long to fit in the left column 
-*/
-.dl-horizontal dt {
-    white-space: normal;
+header {
+    flex: 0 0 auto;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    background-color: whitesmoke;
 }
-
-/* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
-textarea {
-    max-width: 280px;
+.navigation {
+    flex: 1 0 auto;
+    align-self: center;
+    max-width: 1200px;
+    background-color: whitesmoke;
+}
+.navigation ul {
+    flex: 0 1 auto;
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    text-transform: uppercase;
+    margin: 10px 0;
+    padding: 0;
+    flex-flow: row nowrap;
+}
+.navigation ul li {
+    flex: 0 1 auto;
+}
+.navigation ul li a {
+    flex: auto;
+    font-weight: bold;
+    font-size: 1.2em;
+    text-decoration: none;
+    cursor: pointer;
+    border-bottom: solid 3px transparent;
+}
+.navigation ul li a:hover {
+    border-bottom: solid 3px;
+}
+.mainContent {
+    flex: 1 0 auto;
+    display: flex;
+    flex-flow: column nowrap;
+}
+footer {
+    flex: 0 0 auto;
+    background-color: #000000;
+    display: flex;
+    color: whitesmoke;
+    justify-content: space-between;
+    flex-flow: row nowrap;
+}
+footer p {
+    flex: auto;
+    align-self: center;
+    margin: 0;
+    padding: 0 0 0 25px;
+}
+footer img {
+    margin: 10px 25px;
+    height: 50px;
+    padding: 2px;
+    flex: 0 1 auto;
+    background-color: whitesmoke;
+    border-radius: 50px;
+}
+footer a {
+    flex: 1 0 auto;
+    align-self: center;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: whitesmoke;
+}
+.slideContainer {
+    flex: 0 0 auto;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: baseline;  
+}
+.slider {
+    flex: 0 0 auto;
 }
