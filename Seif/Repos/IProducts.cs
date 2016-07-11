@@ -11,5 +11,6 @@ namespace Seif.Repos
         IEnumerable<Product> GetAllProductsInGroupe(int gId);
         IEnumerable<Product> GetProductsInCategory(int cId);
         IEnumerable<Product> GetGunsCase();
+        Product GetProduct(int id);
     }
 }

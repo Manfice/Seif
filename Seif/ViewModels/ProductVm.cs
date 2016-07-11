@@ -9,4 +9,10 @@ namespace Seif.ViewModels
         public ProductImage Avatar { get; set; }
         public IEnumerable<ProductImage> Photos { get; set; } 
     }
+
+    public class ProductView
+    {
+        public Cart Cart { get; set; }
+        public IEnumerable<Product> Products { get; set; }
+    }
 }

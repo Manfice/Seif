@@ -1,5 +1,5 @@
 ﻿@using Seif.Models.SeifData
-@model IEnumerable<Seif.Models.SeifData.Product>
+@model Seif.ViewModels.ProductView
 @{
     ViewBag.Title = "Оружейные сейфы от производителя в Ставрополе.";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -23,32 +23,40 @@
     <h1>храните оружие правильно</h1>
 </div>
 <div class="goodsGuns">
-    @foreach (var item in Model.Where(product => product.CatalogItem.Id == 1))
+    @foreach (var item in Model.Products.Where(product => product.CatalogItem.Id == 1))
     {
         <div class="gunItem">
-            <img src="@item.Images.FirstOrDefault(image => image.PhotoType==PhotoType.Avatar).Path" alt="@item.Articul" />
+            <img src="@item.Images.FirstOrDefault(image => image.PhotoType == PhotoType.Avatar).Path" alt="@item.Articul"/>
             <div class="gunItemDescr">
                 <h1>@item.Articul</h1>
                 <p>@item.Descroption</p>
                 <table>
                     <thead>
-                        <tr>
-                            <td>ширина</td>
-                            <td>высота</td>
-                            <td>глабина</td>
-                            <td>вес</td>
-                        </tr>
+                    <tr>
+                        <td>ширина</td>
+                        <td>высота</td>
+                        <td>глабина</td>
+                        <td>вес</td>
+                    </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>@item.Width mm</td>
-                            <td>@item.Height mm</td>
-                            <td>@item.Depht mm</td>
-                            <td>@item.Weight кг</td>
-                        </tr>
+                    <tr>
+                        <td>@item.Width mm</td>
+                        <td>@item.Height mm</td>
+                        <td>@item.Depht mm</td>
+                        <td>@item.Weight кг</td>
+                    </tr>
                     </tbody>
                 </table>
-                <a>@item.Price</a>
+                @if (Model.Cart.CartItems.Any(cartItem => cartItem.Product.Id == item.Id))
+                {
+                    var i = Model.Cart.CartItems.FirstOrDefault(cartItem => cartItem.Product.Id == item.Id);
+                    <a href="@Url.Action("AddToCart", "Home", new {prodId = item.Id, q = 1})">В корзине @i.Quantity шт. на сумму @i.SubTotal.ToString("C") </a>
+                }
+                else
+                {
+                    <a href="@Url.Action("AddToCart", "Home", new {prodId = item.Id, q = 1})">@item.Price</a>
+                }
             </div>
         </div>
     }

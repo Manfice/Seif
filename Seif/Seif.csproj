@@ -222,12 +222,14 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="IdentityConfig.cs" />
+    <Compile Include="Infrastructure\CartModelBinder.cs" />
     <Compile Include="Infrastructure\NinjectDependencyResolver.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\DataContext.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\SeifData\Cart.cs" />
     <Compile Include="Models\SeifData\Products.cs" />
     <Compile Include="Models\SeifData\Secure.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -393,12 +395,6 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="I:\Repositories\IDS\IndDev\IndDev.Domain\IndDev.Domain.csproj">
-      <Project>{2508d64c-d205-4230-be45-b38f05653f8e}</Project>
-      <Name>IndDev.Domain</Name>
-    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

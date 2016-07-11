@@ -516,6 +516,7 @@ footer a {
     background: url("/Content/img/121.jpg") no-repeat top center fixed;
     margin: 0;
     padding: 0;
+    border-top: solid 3px whitesmoke;
 }
 .blockTitle h1 {
     text-align: center;

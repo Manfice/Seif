@@ -4,13 +4,15 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Seif.Repos;
+using Seif.Models.SeifData;
+using Seif.ViewModels;
 
 namespace Seif.Controllers
 {
     [AllowAnonymous]
     public class HomeController : Controller
     {
-        private IProducts _products;
+        private readonly IProducts _products;
 
         public HomeController(IProducts products)
         {
@@ -31,9 +33,21 @@ namespace Seif.Controllers
             return View();
         }
 
-        public ActionResult GunCase()
+        public ActionResult GunCase(Cart cart)
         {
-            return View(_products.GetGunsCase());
+            var model = new ProductView
+            {
+                Products = _products.GetGunsCase(),
+                Cart = cart
+            };
+            return View(model);
+        }
+
+        public ActionResult AddToCart(Cart cart, int prodId, int q)
+        {
+            var p = _products.GetProduct(prodId);
+            cart.AddToCart(p,q);
+            return RedirectToAction("GunCase");
         }
     }
 }
