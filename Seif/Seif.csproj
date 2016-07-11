@@ -237,6 +237,8 @@
     <Compile Include="Repos\IProducts.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\Auth.cs" />
+    <Compile Include="ViewModels\CatalogVm.cs" />
+    <Compile Include="ViewModels\ProductVm.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -244,6 +246,14 @@
     <Content Include="Content\font.css" />
     <Content Include="Content\img\121.jpg" />
     <Content Include="Content\img\about.jpg" />
+    <Content Include="Content\img\goods\UploadsImages\Е-100К.П3.jpg" />
+    <Content Include="Content\img\goods\UploadsImages\Е-100К2.Т1.jpg" />
+    <Content Include="Content\img\goods\UploadsImages\Е-126К.Т1.jpg" />
+    <Content Include="Content\img\goods\UploadsImages\Е-130К2.Т1.7022.jpg" />
+    <Content Include="Content\img\goods\UploadsImages\Е-137К1.Т1.П2.jpg" />
+    <Content Include="Content\img\goods\UploadsImages\Е-139К1.Е1.Т1.jpg" />
+    <Content Include="Content\img\goods\UploadsImages\Е-139К2.Т1.П2.jpg" />
+    <Content Include="Content\img\goods\UploadsImages\Е-140К.Т1.jpg" />
     <Content Include="Content\img\wow.jpg" />
     <Content Include="Content\img\baner1.jpg" />
     <Content Include="Content\img\fon45.png" />
@@ -366,6 +376,9 @@
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Admin\CategorysList.cshtml" />
     <Content Include="Views\Admin\CatData.cshtml" />
+    <Content Include="Views\Admin\CatItemDetails.cshtml" />
+    <Content Include="Views\Admin\ProductDetails.cshtml" />
+    <Content Include="Views\Admin\AddProduct.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

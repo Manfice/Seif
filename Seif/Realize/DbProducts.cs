@@ -28,6 +28,11 @@ namespace Seif.Realize
             return _context.Products.Where(product => product.CatalogItem.Catalog.Id == gId).ToList();
         }
 
+        public IEnumerable<Product> GetGunsCase()
+        {
+            return _context.Products.Where(product => product.CatalogItem.Catalog.Id == 1).ToList();
+        }
+
         public IEnumerable<Product> GetProductsInCategory(int cId)
         {
             return _context.Products.Where(product => product.CatalogItem.Id==cId).ToList();

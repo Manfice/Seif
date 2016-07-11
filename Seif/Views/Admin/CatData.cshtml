@@ -1,28 +1,83 @@
-﻿@model Seif.Models.SeifData.Catalog
+﻿@using Seif.Models.SeifData
+@model Seif.ViewModels.CatalogVm
 
 @{
     ViewBag.Title = "CatData";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>CatData</h2>
+<div class="row">
+    <div class="col-md-3">
+        <h2>@Model.Catalog.Title</h2>
+        <img src="@Url.Content(Model.Catalog.Image)" alt="" class="catImg" />
+    </div>
+    <div class="col-md-9">
+        <div class="editForm">
+            @using (Html.BeginForm("UpdateCatalog", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.HiddenFor(vm => vm.Catalog.Id)
+                @Html.HiddenFor(vm => vm.Catalog.Image)
+                @Html.Hidden("returnUrl",Request.Url.PathAndQuery)
+                @Html.TextBoxFor(vm => vm.CatImage, new { type = "file" })<br />
+                @Html.Label("Наименование")<br />
+                @Html.TextBoxFor(vm => vm.Catalog.Title)<br />
+                @Html.Label("Описание для поисковика")<br />
+                @Html.TextAreaFor(vm => vm.Catalog.Descroption)<br />
+                @Html.Label("Полное описание")<br />
+                @Html.TextAreaFor(vm => vm.Catalog.HtmlDescr, new {@class = "editorTiny"})<br/>
+                <input type="submit" value="save"/>
+            }
+        </div>        
+    </div>
+</div>
 
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-responsive table-striped">
+            <thead>
+            <tr>
+                <td>id</td>
+                <td>title</td>
+                <td>description</td>
+                <td>Product Count</td>
+                <td></td>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var item in Model.CatalogItems)
+            {
 
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-    
-
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
-            </div>
-        </div>
-}
-
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Title</td>
+                    <td>@item.Descroption</td>
+                    <td>@item.Products.Count()</td>
+                    <td>
+                        <a href="@Url.Action("CatItemDetails","Admin", new {id=item.Id})">Edit</a>
+                    </td>
+                </tr>
+            }
+            </tbody>
+            <tfoot>
+            @using (Html.BeginForm("AddSubCat","Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.Hidden("returnUrl",Request.Url.PathAndQuery)
+                <tr>
+                    <td>new</td>
+                    <td><input type="text" name="Title"/></td>
+                    <td><textarea name="Descroption"></textarea></td>
+                    <td>@Html.TextBox("avatar",null,new {type="file"})</td>
+                    <td><input type="submit" value="save"/></td>
+                </tr>
+            }
+            </tfoot>
+        </table>
+    </div>
+</div>
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to List", "CategorysList")
 </div>
 
 @section Scripts {

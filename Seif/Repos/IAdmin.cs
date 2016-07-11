@@ -11,6 +11,13 @@ namespace Seif.Repos
         IEnumerable<Catalog> GetCatalog { get; }
         void GreateCatalog(Catalog model);
         Catalog CatDetails(int id);
+        void SaveCatalogData(Catalog model);
+        IEnumerable<CatalogItem> GetCatalogItems(int id);
+        CatalogItem GetCatalogItem(int id);
+        void UpdateCatItem(CatalogItem model);
+        Product GetProduct(int id);
+        void EditProductHead(Product model, ProductImage img);
+        int CreateProduct(Product model, ProductImage ava);
 
     }
 }
