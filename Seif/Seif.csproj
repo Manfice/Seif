@@ -78,6 +78,18 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Ninject, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ninject.Web.Common, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.Web.Common.3.2.0.0\lib\net45-full\Ninject.Web.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ninject.Web.Mvc, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.MVC5.3.2.1.0\lib\net45-full\Ninject.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -130,6 +142,10 @@
     <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebActivatorEx.2.0\lib\net40\WebActivatorEx.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="WebGrease">
       <Private>True</Private>
@@ -194,27 +210,65 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\CatalogController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="IdentityConfig.cs" />
+    <Compile Include="Infrastructure\NinjectDependencyResolver.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\DataContext.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\SeifData\Products.cs" />
+    <Compile Include="Models\SeifData\Secure.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Realize\DbAdmin.cs" />
+    <Compile Include="Realize\DbProducts.cs" />
+    <Compile Include="Repos\IAdmin.cs" />
+    <Compile Include="Repos\IProducts.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\Auth.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\font.css" />
+    <Content Include="Content\img\121.jpg" />
+    <Content Include="Content\img\about.jpg" />
+    <Content Include="Content\img\wow.jpg" />
+    <Content Include="Content\img\baner1.jpg" />
+    <Content Include="Content\img\fon45.png" />
+    <Content Include="Content\img\goods\dressCase.jpg" />
+    <Content Include="Content\img\goods\metCase.jpg" />
+    <Content Include="Content\img\goods\officeCase.jpg" />
+    <Content Include="Content\img\goods\school.jpg" />
+    <Content Include="Content\img\goods\stel.jpg" />
+    <Content Include="Content\img\goods\tumba3.jpg" />
+    <Content Include="Content\img\goods\weaponShow.jpg" />
+    <Content Include="Content\img\hweap2.jpg" />
     <Content Include="Content\img\idlgfpngblue.png" />
+    <Content Include="Content\img\jpeg7.jpg" />
+    <Content Include="Content\img\kontakt.jpg" />
     <Content Include="Content\img\logoESSr.png" />
     <Content Include="Content\img\logoESS_150.png" />
+    <Content Include="Content\img\manuf\zavod %281%29.jpg" />
+    <Content Include="Content\media.css" />
+    <Content Include="Content\img\sCat\1.jpg" />
+    <Content Include="Content\img\sCat\2.jpg" />
+    <Content Include="Content\img\sCat\3.jpg" />
+    <Content Include="Content\img\sCat\4.jpg" />
+    <Content Include="Content\img\sCat\5.jpg" />
+    <Content Include="Content\img\sCat\6.jpg" />
+    <Content Include="Content\img\sCat\7.jpg" />
     <Content Include="Content\img\slider\baner-orgygie.jpg" />
     <Content Include="Content\img\slider\banner-seyfi-bl.jpg" />
     <Content Include="Content\img\slider\left-side.jpg" />
@@ -222,10 +276,20 @@
     <Content Include="Content\img\slider\right-side.jpg" />
     <Content Include="Content\img\slider\shcool&amp;garden.jpg" />
     <Content Include="Content\img\slider\svar3.jpg" />
-    <Content Include="favicon.ico" />
+    <Content Include="Content\img\top.png" />
+    <Content Include="Content\img\vitrina\Е-100К.П3.jpg" />
+    <Content Include="Content\img\vitrina\Е-100К2.Т1.jpg" />
+    <Content Include="Content\img\vitrina\Е-126К.Т1.jpg" />
+    <Content Include="Content\img\vitrina\Е-130К2.Т1.7022.jpg" />
+    <Content Include="Content\img\vitrina\Е-137К1.Т1.П2.jpg" />
+    <Content Include="Content\img\vitrina\Е-139К1.Е1.Т1.jpg" />
+    <Content Include="Content\img\vitrina\Е-139К2.Т1.П2.jpg" />
+    <Content Include="Content\img\vitrina\Е-140К.Т1.jpg" />
+    <Content Include="favicon.png" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="robots.txt" />
     <Content Include="Scripts\ai.0.22.9-build00167.js" />
     <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -293,6 +357,15 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Service References\Application Insights\ConnectedService.json" />
+    <Content Include="Views\Catalog\Index.cshtml" />
+    <Content Include="Views\Catalog\Navigation.cshtml" />
+    <Content Include="Views\Catalog\CatDetails.cshtml" />
+    <Content Include="Views\Catalog\SubNav.cshtml" />
+    <Content Include="Views\Home\GunCase.cshtml" />
+    <Content Include="Views\Admin\Login.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\CategorysList.cshtml" />
+    <Content Include="Views\Admin\CatData.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -307,6 +380,12 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="I:\Repositories\IDS\IndDev\IndDev.Domain\IndDev.Domain.csproj">
+      <Project>{2508d64c-d205-4230-be45-b38f05653f8e}</Project>
+      <Name>IndDev.Domain</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -1,0 +1,20 @@
+﻿@model IEnumerable<Seif.Models.SeifData.Catalog>
+
+<div class="catNavigation">
+    <ul>
+        @foreach (var item in Model)
+        {
+            if (item.Id == ViewBag.Selected)
+            {
+                <li class="selectedItem">
+                    <a href="@Url.Action("CatDetails", "Catalog", new {groupe = item.Id, ViewBag.sCat})">@item.Title</a>
+                    @Html.Action("SubNav", "Catalog", new { groupe = item.Id, ViewBag.sCat })
+                </li>
+            }
+            else
+            {
+                <li><a href="@Url.Action("CatDetails","Catalog",new {groupe = item.Id, ViewBag.sCat})">@item.Title</a></li>
+            }
+        }
+    </ul>
+</div>

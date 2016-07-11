@@ -1,0 +1,30 @@
+﻿@model IEnumerable<Seif.Models.SeifData.Catalog>
+
+@{
+    ViewBag.Title = "Каталог товаров";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="catalog">
+    <div class="catNavigation">
+        <ul>
+            @foreach (var item in Model)
+            {
+                <li><a href="@Url.Action("CatDetails","Catalog",new {groupe = item.Id})">@item.Title</a></li>
+            }
+        </ul>
+    </div>
+    <div class="catData">
+        @foreach (var item in Model)
+        {
+            <div class="groupeItem">
+                <img src="@item.Image" alt="" />
+                <div class="groupeDescr">
+                    <h1>@item.Title</h1>
+                    <p>@item.Descroption</p>
+                    <a href="@Url.Action("CatDetails","Catalog", new {groupe = item.Id})">подробнее</a>
+                </div>
+            </div>
+        }
+    </div>
+</div>

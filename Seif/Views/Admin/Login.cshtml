@@ -1,0 +1,17 @@
+﻿@model Seif.ViewModels.LoginViewModel
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Login</h2>
+<h3>@ViewBag.msg</h3>
+@using (Html.BeginForm("LoginMe", "Admin", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.LabelFor(model => model.UserName)
+    @Html.TextBoxFor(model => model.UserName)<br/>
+    @Html.LabelFor(model => model.Password)
+    @Html.PasswordFor(model => model.Password)
+    <input type="submit" value="login"/>
+}

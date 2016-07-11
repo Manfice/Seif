@@ -1,5 +1,5 @@
 ﻿html {
-    min-height: 100%;
+    height: 100%;
     background-color: whitesmoke;
     font-family: 'RobotoRegular';
     display: flex;
@@ -7,26 +7,31 @@
 }
 body {
     margin: 0;
-    padding: 0;
+    padding: 43px 0 0 0;
     flex: auto;
     display: flex;
     flex-direction: column;
+    /*background: url("/Content/img/2fons.ru-51366.jpg") no-repeat center top fixed;
+    background-size: 100%;*/
 }
 header {
     flex: 0 0 auto;
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: column nowrap;
     justify-content: center;
-    background-color: whitesmoke;
+    background: url("/Content/img/fon45.png");
+    position: fixed;
+    top: 0;
+    width: 100%;
 }
 .navigation {
-    flex: 1 0 auto;
+    flex: 1 1 auto;
     align-self: center;
-    max-width: 1200px;
-    background-color: whitesmoke;
+    width: 1200px;
+
 }
 .navigation ul {
-    flex: 0 1 auto;
+    flex: 1 0 auto;
     display: flex;
     justify-content: space-around;
     list-style: none;
@@ -53,10 +58,11 @@ header {
     flex: 1 0 auto;
     display: flex;
     flex-flow: column nowrap;
+
 }
 footer {
     flex: 0 0 auto;
-    background-color: #000000;
+    background-color: rgba(0,0,0,0.75);
     display: flex;
     color: whitesmoke;
     justify-content: space-between;
@@ -88,10 +94,14 @@ footer a {
     display: flex;
     flex-flow: row nowrap;
     justify-content: center;
-    align-items: baseline;  
+    max-width: 1200px;
+    align-self: center;
 }
 .slider {
-    flex: 0 0 auto;
+    flex: 1 0 auto;
+}
+.item img {
+    width: 1200px;
 }
 .shortDescr {
     flex: 0 1 auto;
@@ -99,10 +109,13 @@ footer a {
     flex-flow: row nowrap;
     max-width: 1200px;
     align-self: center;
+    margin: 25px 0;
 }
 .shortDescr img {
     flex: 0 1 auto;
-    max-height: 200px;
+    max-height: 150px;
+    align-self: center;
+    margin: 25px;
 }
 .textBlock {
     flex: 1 1 auto;
@@ -111,9 +124,15 @@ footer a {
 }
 .textBlock h1 {
     flex: 0 1 auto;
+    margin: 0 0 10px 0;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 1.8em;
 }
 .textBlock p {
     flex: 0 1 auto;
+    font-weight: 500;
+    font-size: 1.3em;
 }
 .textBlock ul {
     flex: 0 1 auto;
@@ -122,4 +141,508 @@ footer a {
 }
 .textBlock ul li a {
     flex: 0 1 auto;
+    color: rgb(62, 62, 66);
+    font-weight: 600;
 }
+.goodsView {
+    flex: 0 0 auto;
+    max-width: 1200px;
+    align-self: center;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+.goodsView h1 {
+    flex: 1 0 auto;
+    width: 100%;
+    text-align: center;
+}
+.goodsView h1 a {
+    cursor: pointer;
+}
+.gItem {
+    flex: 0 0 auto;
+    display: flex;
+    flex-flow: column nowrap;
+    padding: 10px;
+    border: solid 3px green;
+    margin: 20px;
+    width: 350px;
+    justify-content: flex-end;
+}
+.gItem a {
+    flex: 0 0 auto;
+    flex: 0 0 auto;
+    display: flex;
+    flex-flow: column nowrap;
+    cursor: pointer;
+    color: dodgerblue;
+    text-decoration: none;
+}
+.gItem:hover {
+    border: solid 3px orangered;
+} 
+.gItem a img {
+    flex: 0 0 auto;
+    align-self: center;
+    max-width: 200px;
+    margin: 20px;
+}
+.gItem a h1 {
+    flex: 0 0 auto;
+    font-size: 1.4em;
+    margin: 10px;
+    align-self: center;
+    text-align: center;
+}
+.engeerBlock {
+    flex: 0 1 auto;
+    display: flex;
+    flex-flow: column;
+    max-width: 1200px;
+    align-self: center;
+}
+.engeerBlock h1 {
+    flex: 0 0 auto;
+    margin: 20px 0;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 10px;
+    font-weight: 900;
+    font-size: 4em;
+    color: orangered;
+}
+.eDescr {
+    flex: 0 0 auto;
+    display: flex;
+    flex-flow: row nowrap;
+}
+.eDescr img {
+    height: 300px;
+    border-radius: 10px;
+    margin: 0 20px 0 0;
+}
+.eTextBlock {
+    flex: 0 1 auto;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+}
+.eTextBlock h3 {
+    flex: 0 0 auto;
+    text-transform: uppercase;
+    margin: 0 0 20px 0;
+    font-weight: 700;
+    font-size: 1.4em;
+}
+.eTextBlock p {
+    flex: 0 0 auto;
+    font-size: 1.6em;
+    text-align: justify;
+}
+.manufBlock {
+    flex: 0 1 auto;
+    display: flex;
+    flex-flow: column;
+    max-width: 1200px;
+    align-self: center;
+}
+.manufBlock h1 {
+    flex: 1 0 auto;
+    text-align: center;
+    margin: 40px 0 20px 0;
+    text-transform: uppercase;
+    font-weight: 900;
+}
+.manufBlock p {
+    flex: 1 1 auto;
+    text-align: justify; 
+}
+.manufBlock img {
+    flex: 0 1 auto;
+    max-width: 1200px;
+}
+.aboutUs {
+    flex: 1 0 auto;
+    display: flex;
+    flex-flow: column nowrap;
+    width: 100%;
+    align-items: center;
+    background: url("/Content/img/about.jpg") no-repeat top center;
+}
+.aboutDescr {
+    flex: 1 0 auto;
+    max-width: 1200px;
+    align-self: center;
+    width: 100%;
+    background-color: rgba(255,255,255,0.6);
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    padding: 20px;
+}
+.aboutDescr img {
+    max-height: 200px;
+    margin: 20px;
+    align-self: center;
+}
+.aboutDescr a {
+    color: darkblue;
+    cursor: pointer;
+}
+.aboutDescr h1 {
+    text-align: center;
+    margin: 30px 0 10px 0;
+}
+.aboutDescr h3 {
+    text-align: center;
+    margin: 0;
+    text-transform: uppercase;
+}
+.aboutDescr p:first-letter {
+    margin-left: 20px;
+}
+.aboutDescr p {
+    text-align: justify;
+    color: black;
+    margin-top: 10px;
+}
+.contactUs {
+    flex: 0 0 auto;
+    display: flex;
+    flex-flow: column nowrap;
+    max-width: 1200px;
+    align-self: center;
+    width: 100%;
+}
+.contactUs h1 {
+    flex: 1 1 auto;
+    text-align: center;
+    text-transform: uppercase;
+}
+.retail {
+    flex: none;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+}
+.retail img {
+    flex: 0 0 auto;
+    max-height: 200px;
+}
+.contData{
+    flex: 0 0 auto;
+    text-align: right;
+    align-self: center;
+} 
+.catalog {
+    flex: 1 0 auto;
+    display: flex;
+    flex-flow: row nowrap;
+    max-width: 1200px;
+    align-self: center;
+    width: 100%;
+}
+.catNavigation {
+    flex: 1 0 auto;
+    display: flex;
+    max-width: 300px;
+    flex-flow: column nowrap;
+    padding: 0 20px 0 0;
+    margin: 20px 0 0 0;
+}
+.selectedItem {
+    background-color: lightgreen;
+}
+.catNavigation ul {
+    flex: 0 0 auto;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-flow: column nowrap;
+}
+.catNavigation ul li {
+    flex: 1 0 auto;
+    border-bottom: solid 1px;
+    display: flex;
+    flex-flow: column;
+}
+.catNavigation ul li a {
+    text-decoration: none;
+    font-weight: 700;
+    cursor: pointer;
+    font-size: 1.2em;
+    color: black;
+    flex: 1 0 auto;
+    padding: 20px;
+}
+.catNavigation ul li a:hover {
+    color: whitesmoke;
+    background-color: dodgerblue;
+
+}
+.catData {
+    flex: 0 1 auto;
+    display: flex;
+    flex-flow: column nowrap;
+    margin: 0 0 20px 0;
+}
+.groupeItem {
+    flex: 0 1 auto;
+    display: flex;
+    flex-flow: row nowrap;
+    padding: 35px 0 0 0;
+    justify-content: flex-start;
+    border-bottom: solid 1px black;
+}
+.groupeItem img {
+    max-width: 250px;
+    align-self: flex-end;
+    padding: 0 15px 0 0;
+}
+.groupeDescr {
+    width: 900px;
+    position: relative;
+}
+.groupeDescr h1 {
+    margin: 0;
+    font-size: 1.8em;
+    font-weight: 700;
+}
+.groupeDescr p {
+    text-align: justify;
+    margin: 10px 10px 0 0;
+}
+.groupeDescr p:first-letter {
+    margin: 0 0 0 25px;
+}
+.groupeDescr a {
+    cursor: pointer;
+    padding: 10px 25px;
+    background-color: orangered;
+    color: white;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 1px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+.subCat {
+    flex: 0 0 auto;
+    display: flex;
+    flex-flow: column wrap;
+}
+.subCat ul {
+    flex: 1 0 auto;
+    display: flex;
+    flex-flow: column wrap;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    justify-content: space-around;
+}
+.subCat ul li {
+    flex: 0 1 auto;
+    margin: 10px 10px;
+    display: flex;
+    flex-flow: column nowrap;
+}
+.subCat ul li a {
+    flex: 1 0 auto;
+    border: solid 3px dodgerblue;
+    padding: 10px;
+    cursor: pointer;
+    font-weight: 700;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: baseline;
+    background-color: dodgerblue;
+    color: white;
+}
+.subCat ul li a img {
+    flex: 1 0 auto;
+    max-width: 100px;
+}
+.subCat ul li a p {
+    flex: 0 0 auto;
+    max-width: 150px;
+}
+.selectedSItem {
+    border: solid 3px orangered !important;
+}
+/*baner*/
+.baner {
+    flex: 0 1 auto;
+    display: flex;
+    flex-flow: row wrap;
+    background: url("/Content/img/hweap2.jpg") no-repeat top center;
+    background-size: auto;
+    height: 600px;
+    justify-content: space-around;
+    overflow: hidden;
+
+}
+.baner img {
+    align-self: flex-end;
+}
+.banerContent {
+    width: 500px;
+    background-color: rgba(0, 0, 0, 0.6);
+    align-self: center;
+    padding: 20px 20px;
+}
+.banerContent h1 {
+    color: whitesmoke;
+    font-weight: 900;
+    text-transform: uppercase;
+    font-family: "RobotoBold"
+}
+.banerContent p {
+    color: whitesmoke;
+    font-family: "RobotoBold";
+    letter-spacing: 1px;
+    font-size: 2em;
+}
+.banerContent p:first-letter {
+    margin-left: 20px;
+}
+/**/
+/*block Title*/
+.blockTitle {
+    flex: 0 0 auto;
+    background: url("/Content/img/121.jpg") no-repeat top center fixed;
+    margin: 0;
+    padding: 0;
+}
+.blockTitle h1 {
+    text-align: center;
+    text-transform: uppercase;
+    font-family: "RobotoBold";
+    font-size: 3em;
+    color: rgb(30, 30, 30);
+    margin: 20px;
+    color: whitesmoke; 
+}
+.goodsGuns {
+    flex: 0 0 auto;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    background: url("/Content/img/fon45.png");
+    padding: 30px 0;
+    font-family: "RobotoBold";
+}
+.gunItem {
+    flex: 0 1 25%;
+    margin: 30px;
+    align-self: flex-start;
+    border: solid 3px transparent;
+    padding: 5px;
+}
+.gunItem:hover {
+    border: solid 3px green;    
+}
+.gunItem h3 {
+    text-align: center;
+}
+.gunItem img {
+    max-width: 100%;
+    height: auto;
+    width: auto\9;
+    padding: 10px;
+    background-color: white;
+}
+.gunItemDescr {
+    background-color: orange;
+    padding: 15px;
+}
+.gunItemDescr h1 {
+    margin: 0;
+    text-align: center;
+    font-weight: bolder;
+    font-size: 1.5em;
+}
+.gunItemDescr p {
+    text-align: justify;
+}
+.gunItemDescr table {
+    width: 100%;
+    text-align: center;
+    text-transform: uppercase;
+}
+.gunItemDescr h3 {
+    font-weight: bolder;
+    font-size: 250%;
+    text-align: right;
+    color: #fff;
+}
+/**/
+/*recl*/
+.recl {
+    flex: 0 0 auto;
+    background: url("/Content/img/wow.jpg") no-repeat fixed;
+    display: flex;
+    flex-flow: column nowrap;
+}
+.recl h1 {
+    text-align: center;
+    color: whitesmoke;
+    font-weight: bolder;
+    text-transform: uppercase;
+    font-family: "RobotoBold";
+    border-bottom: solid;
+    background-color: #ffffff;
+    background-color: rgba(47, 38, 44, 0.7);
+    padding: 30px;
+    margin: 0;
+}
+.myGun {
+    display: flex;
+    align-self: center;
+    justify-content: space-around;
+    width: 100%;
+}
+.mustKnew {
+    flex: 0 0 25%;
+    background-color: #ffffff;
+    background-color: rgba(47, 38, 44, 0.7);
+    margin: 50px 0;
+    padding: 20px;
+}
+.mustKnew h3 {
+    color: white;
+    text-transform: uppercase;
+    text-align: center;
+    border-bottom: solid;
+    padding-bottom: 20px;
+}
+.mustKnew p {
+    color: white;
+    font-family: "RobotoLight";
+}
+.mustKnew p:first-letter {
+    margin: 0 0 0 20px;
+}
+.mustKnew ul {
+    color: whitesmoke;
+}
+/**/
+/*map*/
+.contactsIndex {
+    position: relative;
+}
+.mapDescr {
+    position: absolute;
+    top: 20%;
+    right: 300px;
+    border: solid green;
+    background-image: url("/Content/img/fon45.png");
+    padding: 30px;
+}
+.mapDescr address{
+    text-align: right;
+    font-size: 2em;
+}
+/**/

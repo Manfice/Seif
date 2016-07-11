@@ -4,30 +4,79 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content=@ViewBag.descr/>
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <meta name='yandex-verification' content='595de230a3f38309'/>
+    <link rel="shortcut icon" href="/favicon.png" type="image/png">
+    <title>@ViewBag.Title - в Ставрополе</title>
+    <link href="~/Content/media.css" rel="stylesheet" />
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     @RenderSection("links", false)
     <script type="text/javascript">
-        var appInsights=window.appInsights||function(config){
-            function r(config){t[config]=function(){var i=arguments;t.queue.push(function(){t[config].apply(t,i)})}}var t={config:config},u=document,e=window,o="script",s=u.createElement(o),i,f;for(s.src=config.url||"//az416426.vo.msecnd.net/scripts/a/ai.0.js",u.getElementsByTagName(o)[0].parentNode.appendChild(s),t.cookie=u.cookie,t.queue=[],i=["Event","Exception","Metric","PageView","Trace","Ajax"];i.length;)r("track"+i.pop());return r("setAuthenticatedUserContext"),r("clearAuthenticatedUserContext"),config.disableExceptionTracking||(i="onerror",r("_"+i),f=e[i],e[i]=function(config,r,u,e,o){var s=f&&f(config,r,u,e,o);return s!==!0&&t["_"+i](config,r,u,e,o),s}),t
+        var appInsights = window.appInsights || function(config) {
+            function r(config) {
+                t[config] = function() {
+                    var i = arguments;
+                    t.queue.push(function() { t[config].apply(t, i) })
+                }
+            }
+
+            var t = { config: config }, u = document, e = window, o = "script", s = u.createElement(o), i, f;
+            for (s.src = config.url || "//az416426.vo.msecnd.net/scripts/a/ai.0.js", u.getElementsByTagName(o)[0].parentNode.appendChild(s), t.cookie = u.cookie, t.queue = [], i = ["Event", "Exception", "Metric", "PageView", "Trace", "Ajax"]; i.length;)r("track" + i.pop());
+            return r("setAuthenticatedUserContext"), r("clearAuthenticatedUserContext"), config.disableExceptionTracking || (i = "onerror", r("_" + i), f = e[i], e[i] = function(config, r, u, e, o) {
+                var s = f && f(config, r, u, e, o);
+                return s !== !0 && t["_" + i](config, r, u, e, o), s
+            }), t
         }({
-            instrumentationKey:"f1678e2a-332c-471d-a87f-60cb218c78b8"
+            instrumentationKey: "f1678e2a-332c-471d-a87f-60cb218c78b8"
         });
-        
-        window.appInsights=appInsights;
+
+        window.appInsights = appInsights;
         appInsights.trackPageView();
     </script>
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter38414455 = new Ya.Metrika({
+                    id:38414455,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true,
+                    webvisor:true,
+                    trackHash:true
+                });
+            } catch(e) { }
+        });
+
+        var n = d.getElementsByTagName("script")[0],
+            s = d.createElement("script"),
+            f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks");
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/38414455" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+    <!--[if lt IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+    <![endif]-->
+
 </head>
 <body>
 <header>
     <div class="navigation">
         <ul>
-            <li><a>главная</a></li>
-            <li><a>компания</a></li>
-            <li><a>новости</a></li>
-            <li><a>оплата / доставка</a></li>
-            <li><a>контакты</a></li>
+            <li><a href="/">главная</a></li>
+            <li><a href="@Url.Action("About","Home")">компания</a></li>
+            <li><a href="@Url.Action("Index","Catalog")">каталог</a></li>
+            <li><a href="@Url.Action("Contact","Home")">контакты</a></li>
             <li><a>8(8652)99-19-13</a></li>
         </ul>
     </div>
@@ -39,6 +88,13 @@
 
 <footer>
     <p>&copy; @DateTime.Now.Year - Все права защищены.</p>
+    <!-- Yandex.Metrika informer -->
+    <a href="https://metrika.yandex.ru/stat/?id=38414455&amp;from=informer"
+       target="_blank" rel="nofollow">
+        <img src="https://informer.yandex.ru/informer/38414455/3_0_FFFFFFFF_EFEFEFFF_0_pageviews"
+             style="width:88px; height:31px; border:0;" alt="Яндекс.Метрика" title="Яндекс.Метрика: данные за сегодня (просмотры, визиты и уникальные посетители)" onclick="try{Ya.Metrika.informer({i:this,id:38414455,lang:'ru'});return false}catch(e){}" />
+    </a>
+    <!-- /Yandex.Metrika informer -->
     <a href="http://www.id-racks.ru/Home/Contact">Induatrial Development</a>
     <img src="~/Content/img/logoESSr.png" alt="devLogo"/>
 </footer>

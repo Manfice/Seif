@@ -1,0 +1,13 @@
+﻿@model Seif.Models.SeifData.User
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Model.UserName</h2>
+
+<ul>
+    <li>@Html.ActionLink("Categorys", "CategorysList")</li>
+    <li>@Html.ActionLink("LogOut","Logout")</li>
+</ul>
+

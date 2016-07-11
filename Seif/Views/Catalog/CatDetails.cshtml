@@ -1,0 +1,23 @@
+﻿@model Seif.Models.SeifData.Products
+
+@{
+    ViewBag.Title = Model.Catalog.Title;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.descr = Model.Catalog.Descroption;
+}
+
+<div class="catalog">
+    @Html.Action("Navigation","Catalog",new {id=Model.Catalog.Id, subCat = ViewBag.sCat})
+    <div class="catData">
+        <table>
+            @foreach (var item in Model.ProductsList)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Title</td>
+                    <td>@item.Price</td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>

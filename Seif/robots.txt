@@ -1,0 +1,5 @@
+﻿User-agent: *
+Host:ferocon.azurewebsites.net/
+Allow:/Home/
+Disallow:/Account/
+Disallow:/Catalog/
