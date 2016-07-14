@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Seif.Models.SeifData;
+using Seif.ViewModels;
 
 namespace Seif.Repos
 {
@@ -12,5 +14,7 @@ namespace Seif.Repos
         IEnumerable<Product> GetProductsInCategory(int cId);
         IEnumerable<Product> GetGunsCase();
         Product GetProduct(int id);
+        Order GetOrder(Guid id);
+        Guid MakeOrder(CartViewModel cart);
     }
 }

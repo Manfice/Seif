@@ -18,6 +18,8 @@ namespace Seif.Repos
         Product GetProduct(int id);
         void EditProductHead(Product model, ProductImage img);
         int CreateProduct(Product model, ProductImage ava);
-
+        void AddPhoto(ProductImage photo);
+        void RemoveImage(int id);
+        ProductImage GetImage(int id);
     }
 }

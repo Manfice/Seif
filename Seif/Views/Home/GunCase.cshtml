@@ -23,10 +23,20 @@
     <h1>храните оружие правильно</h1>
 </div>
 <div class="goodsGuns">
-    @foreach (var item in Model.Products.Where(product => product.CatalogItem.Id == 1))
+    @foreach (var item in Model.Products.Where(product => product.CatalogItem.Id == 1).OrderBy(product => product.Price))
     {
-        <div class="gunItem">
+        <div class="gunItem" id="@item.Id">
             <img src="@item.Images.FirstOrDefault(image => image.PhotoType == PhotoType.Avatar).Path" alt="@item.Articul"/>
+            <ul class="callToAction">
+                @if (item.Hit)
+                {
+                    <li>ХИТ</li>
+                }
+                @if (item.Discount > 0)
+                {
+                    <li>-@item.Discount%</li>
+                }
+            </ul>
             <div class="gunItemDescr">
                 <h1>@item.Articul</h1>
                 <p>@item.Descroption</p>
@@ -48,6 +58,8 @@
                     </tr>
                     </tbody>
                 </table>
+            </div>
+            <div class="bottomBlock">
                 @if (Model.Cart.CartItems.Any(cartItem => cartItem.Product.Id == item.Id))
                 {
                     var i = Model.Cart.CartItems.FirstOrDefault(cartItem => cartItem.Product.Id == item.Id);
@@ -55,8 +67,9 @@
                 }
                 else
                 {
-                    <a href="@Url.Action("AddToCart", "Home", new {prodId = item.Id, q = 1})">@item.Price</a>
+                    <a href="@Url.Action("AddToCart", "Home", new {prodId = item.Id, q = 1})">Купить за @item.Price.ToString("C")</a>
                 }
+                <a href="@Url.Action("Product","Catalog", new {id=item.Id, returnUrl=Request.Url.PathAndQuery})"><span>ПОДРОБНЕЕ</span>></a>
             </div>
         </div>
     }

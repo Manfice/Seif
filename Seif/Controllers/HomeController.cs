@@ -32,6 +32,10 @@ namespace Seif.Controllers
         {
             return View();
         }
+        public ActionResult Delivery()
+        {
+            return View();
+        }
 
         public ActionResult GunCase(Cart cart)
         {
@@ -48,6 +52,11 @@ namespace Seif.Controllers
             var p = _products.GetProduct(prodId);
             cart.AddToCart(p,q);
             return RedirectToAction("GunCase");
+        }
+
+        public ActionResult CartBlock(Cart cart)
+        {
+            return PartialView(cart);
         }
     }
 }

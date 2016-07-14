@@ -16,5 +16,7 @@ namespace Seif.Models
         public DbSet<ProductImage> ProductImages { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Role> Roles { get; set; }
+        public DbSet<CartItem> CartItems { get; set; }
+        public DbSet<Order> Orders { get; set; }
     }
 }

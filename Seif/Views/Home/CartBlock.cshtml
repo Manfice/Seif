@@ -1,0 +1,11 @@
+﻿@model Seif.Models.SeifData.Cart
+    
+@if (Model.CartItems.Any())
+{
+    <div class="cart">
+        <ul>
+            <li><a href="@Url.Action("Index","Cart",new {returnUrl=Request.Url.PathAndQuery})">Корзина</a></li>
+            <li>@Model.CalcTotal().ToString("C")</li>
+        </ul>
+    </div>
+}

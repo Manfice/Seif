@@ -89,11 +89,16 @@
     <div class="navigation">
         <ul>
             <li><a href="/">главная</a></li>
-            <li><a href="@Url.Action("About","Home")">компания</a></li>
-            <li><a href="@Url.Action("Index","Catalog")">каталог</a></li>
-            <li><a href="@Url.Action("Contact","Home")">контакты</a></li>
-            <li><a>8(8652)99-19-13</a></li>
+            <li><a>компания</a>
+                <ul class="subNavTop">
+                    <li><a href="@Url.Action("About", "Home")">о компании</a></li>
+                    <li><a href="@Url.Action("Contact", "Home")">контакты</a></li>
+                </ul>
+            </li>
+            <li><a href="@Url.Action("Delivery","Home")">оплата/доставка</a></li>
         </ul>
+        @Html.Action("CartBlock","Home")
+        <p>8(8652)99-19-13</p>
     </div>
 </header>
 

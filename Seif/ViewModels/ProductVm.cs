@@ -15,4 +15,10 @@ namespace Seif.ViewModels
         public Cart Cart { get; set; }
         public IEnumerable<Product> Products { get; set; }
     }
+
+    public class ProductDetailsVm
+    {
+        public Product Product { get; set; }
+        public Cart Cart { get; set; }
+    }
 }

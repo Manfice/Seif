@@ -7,7 +7,7 @@
 }
 body {
     margin: 0;
-    padding: 43px 0 0 0;
+    padding: 50px 0 0 0;
     flex: auto;
     display: flex;
     flex-direction: column;
@@ -17,43 +17,79 @@ body {
 header {
     flex: 0 0 auto;
     display: flex;
-    flex-flow: column nowrap;
-    justify-content: center;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
     background: url("/Content/img/fon45.png");
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 999;
+    height: 50px;
 }
 .navigation {
     flex: 1 1 auto;
-    align-self: center;
-    width: 1200px;
-
-}
-.navigation ul {
-    flex: 1 0 auto;
     display: flex;
-    justify-content: space-around;
-    list-style: none;
-    text-transform: uppercase;
-    margin: 10px 0;
-    padding: 0;
     flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
 }
-.navigation ul li {
-    flex: 0 1 auto;
+.navigation>ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0 10px;
 }
-.navigation ul li a {
-    flex: auto;
-    font-weight: bold;
-    font-size: 1.2em;
+.navigation>ul li {
+    padding: 0;
+    position: relative;
+    height: 50px;
+}
+.navigation>ul li:hover .subNavTop {
+    display: block;
+}
+.navigation>ul>li:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: whitesmoke;
+}
+.navigation>ul>li:hover>a {
+    color: whitesmoke;
+}
+.navigation>ul>li>a {
+    padding: 0 30px;
+    font-family: "RobotoLight";
+    font-size: 2em;
+    display: block;
     text-decoration: none;
     cursor: pointer;
-    border-bottom: solid 3px transparent;
+    line-height: 50px;
 }
-.navigation ul li a:hover {
-    border-bottom: solid 3px;
+.subNavTop {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    display: none;
+    background: url("/Content/img/fon45.png");
+}
+.subNavTop>li>a {
+    padding: 0 30px;
+    font-family: "RobotoLight";
+    font-size: 1.5em;
+    display: block;
+    text-decoration: none;
+    cursor: pointer;
+    white-space: nowrap;
+    line-height: 50px;
+}
+.navigation p {
+    padding: 0 20px 0 0;
+    font-family: "RobotoBold";
+    font-size: 2em;
+    flex: 1 0 auto;
+    text-align: end;
+}
+.navigation>ul li {
+    
 }
 .mainContent {
     flex: 1 0 auto;
@@ -542,9 +578,27 @@ footer a {
     align-self: flex-start;
     border: solid 3px transparent;
     padding: 5px;
+    overflow: hidden;
+    position: relative;
 }
 .gunItem:hover {
     border: solid 3px green;    
+}
+.callToAction {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    list-style: none;
+    background-color: red;
+    padding: 0;
+}
+.callToAction li {
+    border-bottom: solid 2px transparent;
+    padding: 20px 10px;
+    text-align: center;
+    color: whitesmoke;
+    font-size: 1.5em;
+    transform: rotate(25deg)
 }
 .gunItem h3 {
     text-align: center;
@@ -574,11 +628,22 @@ footer a {
     text-align: center;
     text-transform: uppercase;
 }
-.gunItemDescr h3 {
-    font-weight: bolder;
-    font-size: 250%;
-    text-align: right;
-    color: #fff;
+.bottomBlock {
+    background-color: green;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}
+.bottomBlock a {
+    flex: 1 0 auto;
+    color: whitesmoke;
+    padding: 20px;
+}
+.bottomBlock a:last-child {
+    flex: 0 0 auto;
+    background-color: orangered;
+    color: whitesmoke;
+    padding: 20px;
 }
 /**/
 /*recl*/
@@ -669,4 +734,354 @@ footer a {
     flex-flow: row nowrap;
     justify-content: flex-start;
 }
+.photoBlock {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+}
+.photoItem {
+    display: flex;
+    flex-flow: column nowrap;
+}
+.photoItem img {
+    max-width: 200px;
+}
+.productAd {
+    padding: 20px;
+}
+/**/
+/**/
+.cartIndex {
+    display: flex;
+    flex-flow: column;
+    background: url("/Content/img/fon45.png");
+    flex: auto;
+}
+.cartIndex h1 {
+    text-align: center;
+}
+.cartLines {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+.cartItem {
+    max-width: 300px;
+    overflow: hidden;
+    width: 100%;
+    margin: 20px;
+    box-shadow: 2px 2px 2px gray;
+    position: relative;
+}
+.cartItem>a {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 3px;
+    color: red;
+    font-size: 25px;
+}
+.cartItem img {
+    max-width: 100%;
+    height: auto;
+    width: auto\9;
+    padding: 10px;
+    background-color: white;
+}
+.cost {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+}
+.cost li {
+    flex: 1 0 auto;
+    text-align: center;
+    font-size: 1.3em;
+    background-color: dodgerblue;
+    color: whitesmoke;
+    text-transform: uppercase;
+}
+.quantity {
+    list-style: none;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
+}
+.quantity li {
+    flex: auto;
+    background-color: orangered;
+}
+.quantity li a {
+    display: block;
+    text-align: center;
+    line-height: 50px;
+    font-size: 2em;
+    color: whitesmoke;
+}
+.quantity li:first-child {
+    background-color: green;
+}
+.quantity li:last-child {
+    background-color: red;
+}
+.summaryCart {
+    text-align: center;
+    font-family: "RobotoBold";
+    font-size: 1.5em;
+    background: url("/Content/img/121.jpg") center center;
+    color: whitesmoke;
+}
+.summaryCart p {
+    margin: 10px 30px;
+    display: inline;
+}
+.summaryCart a {
+    background-color: green;
+    padding: 10px 30px;
+    color: whitesmoke;
+    text-decoration: none;
+    display: inline-block;
+    text-transform: uppercase;
+}
+.summaryCart a:hover {
+    background-color: transparent;
+    color: green;
+    transition: all 1s;   
+}
+.cartIndex>ul {
+    list-style: none;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    padding: 0;
+    margin: 30px;
+}
+.cartIndex > ul > li:first-child > a {
+    background-color: orangered;
+    transition: all 1s;
+}
+.cartIndex > ul > li:first-child > a:hover {
+    background-color: transparent;
+    color: orangered;
+    border: solid 3px orangered;
+    transition: all 1s;
+}
+.cartIndex > ul > li:last-child > a:hover {
+    background-color: transparent;
+    color: green;
+    border: solid 3px green;
+    transition: all 1s;    
+} 
+.persData {
+    align-self: center;
+    max-width: 500px;
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+}
+.persData input[type="text"] {
+    width: 100%;
+    margin: 10px 0;
+    height: 35px;
+    border-radius: 5px;
+    padding: 5px;
+}
+.persSubmit {
+    margin: 20px 40%;
+    font-family: "RobotoBold";
+    text-transform: uppercase;
+    padding: 10px;
+    background-color: rgb(135, 208, 131);
+    border: none;
+}
+.thancks {
+    padding: 20px;
+    background: url("/Content/img/fon45.png");
+    flex: auto;
+    display: flex;
+    flex-direction: column;
+}
+.thancks table thead {
+    background-color: dodgerblue;
+    color: whitesmoke;
+    text-align: center;
+}
+.thancks table tfoot {
+    background-color: whitesmoke;
+    text-align: end;
+    font-family: "RobotoBold";
+}
+.cart {
+    order: 5;
+    background-color: orangered;
+    align-self: flex-start;
+    border-bottom-left-radius: 15px;
+}
+.cart ul {
+    list-style: none;
+    padding: 10px 20px 0;
+}
+.cart ul li {
+    text-align: center;
+}
+.cart ul li a {
+    color: whitesmoke;
+    line-height: 35px;
+}
+.ordStatus ul {
+    list-style: none;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+}
+.itemWait {
+    background-color: lightgray;
+    padding: 10px 20px 10px 0;
+    color: whitesmoke;
+    font-weight: bold;
+    border-radius: 20px;
+    border: solid gray;
+}
+.itemWait span {
+    background-color: lightgray;
+    padding: 10px 20px;
+    color: whitesmoke;
+    font-weight: bold;
+    border-radius: 20px;
+    border-right: solid gray;
+    margin: 0 10px 0 0;   
+}
+.itemExec {
+    background-color: lightgreen;
+    padding: 10px 20px 10px 0;
+    color: green;
+    font-weight: bold;
+    border-radius: 20px;
+    border: solid green;
+}
+.itemExec span {
+    background-color: lightgreen;
+    padding: 10px 20px;
+    color: green;
+    font-weight: bold;
+    border-radius: 20px;
+    border-right: solid green;
+    margin: 0 10px 0 0;       
+}
+/**/
+/**/
+.delivery {
+    flex: 1 0 auto;
+    background: url("/Content/img/fon45.png");
+    max-width: 1200px;
+    width: 100%;
+    align-self: center;
+    padding: 20px;
+}
+.delivery h1 {
+    text-align: center;
+}
+
+/**/
+/**/
+.productDetails {
+    flex: auto;
+    background: url("/Content/img/fon45.png");
+    display: flex;
+    flex-direction: column;
+}
+.productRow {
+    flex: none;
+    max-width: 1200px;
+    width: 100%;
+    align-self: center;
+    padding-top: 20px;
+}
+.productRow ul:first-child {
+    list-style: none;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+.productRow ul:first-child > li {
+    flex: none;
+}
+.productRow ul:first-child > li > h1 {
+    margin: 0;
+    padding: 0;
+    font-size: 1.6em;
+}
+.productRow ul:first-child > li > h3 {
+    margin: 0;
+    padding: 0;
+}
+.pHead {
+    flex: 0 0 auto;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    position: relative;
+    margin-top: 50px;
+}
+.pHead p {
+    text-align: justify;
+}
+.pHead p:first-letter {
+    margin-left: 20px;
+}
+.priceBlock table {
+    flex: none;
+    width: 100%;
+    text-align: center;
+    font-size: 1.3em;
+}
+.pAvatar img {
+    max-width: 300px;
+}
+.pControl {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.pControl li {
+    border-left: solid 3px whitesmoke;
+    flex: 1 0 auto;
+    background-color: orange;
+}
+.pControl li a {
+    padding: 20px 40px;
+    color: whitesmoke;
+    font-family: "RobotoBold";
+    font-size: 1.5em;
+    text-align: center;
+    display: block;
+}
+.priceBlock {
+    flex: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.aditionalPhotos {
+    display: flex;
+    flex-flow: row wrap;
+    padding: 20px;
+}
+.padItem {
+    flex: 0 0 25%;
+}
+.padItem img {
+    width: 100%;
+}
+
 /**/

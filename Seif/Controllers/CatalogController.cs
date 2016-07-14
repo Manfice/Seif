@@ -5,9 +5,11 @@ using System.Web;
 using System.Web.Mvc;
 using Seif.Models.SeifData;
 using Seif.Repos;
+using Seif.ViewModels;
 
 namespace Seif.Controllers
 {
+    [AllowAnonymous]
     public class CatalogController : Controller
     {
         private readonly IProducts _products;
@@ -17,7 +19,7 @@ namespace Seif.Controllers
             _products = products;
         }
         // GET: Catalog
-        [AllowAnonymous]
+
         public ActionResult Index()
         {
             var model = _products.Catalogs;
@@ -38,6 +40,16 @@ namespace Seif.Controllers
             return View(model);
         }
 
+        public ActionResult Product(Cart cart, int id, string returnUrl)
+        {
+            var model = new ProductDetailsVm
+            {
+                Product = _products.GetProduct(id),
+                Cart = cart
+            };
+            ViewBag.ru = returnUrl;
+            return View(model);
+        }
         public ActionResult Navigation(int id, int subCat = 0)
         {
             var model = _products.Catalogs;

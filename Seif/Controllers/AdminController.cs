@@ -162,7 +162,38 @@ namespace Seif.Controllers
             return Redirect(returnUrl);
 
         }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult AddPhoto(int pId, List<HttpPostedFileBase> photo)
+        {
+            if (photo.Count <= 0) return RedirectToAction("ProductDetails", "Admin", new {id = pId});
+            foreach (var item in photo)
+            {
+                var fileName = Guid.NewGuid()+"_"+item.FileName;
+                var filePath = Server.MapPath("/Content/img/goods/UploadsImages");
+                var fullPath = Path.Combine(filePath, fileName);
+                item.SaveAs(fullPath);
+                var phot = new ProductImage
+                {
+                    Product = _admin.GetProduct(pId),
+                    Path = "/Content/img/goods/UploadsImages/" + fileName,
+                    PhotoType = PhotoType.Photo
+                };
+                _admin.AddPhoto(phot);
+            }
+            return RedirectToAction("ProductDetails","Admin",new {id=pId});
+        }
 
+        public ActionResult RemoveImage(int id)
+        {
+            var i = _admin.GetImage(id);
+            if (!System.IO.File.Exists(Server.MapPath(i.Path)))
+                return RedirectToAction("ProductDetails", "Admin", new {id = i.Product.Id});
+            //var file = System.IO.File.OpenWrite(Server.MapPath(i.Path));
+            System.IO.File.Delete(Server.MapPath(i.Path));
+            _admin.RemoveImage(i.Id);
+            return RedirectToAction("ProductDetails", "Admin", new {id = i.Product.Id});
+        }
         public ActionResult AddProduct()
         {
             return View(new ProductVm());

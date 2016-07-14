@@ -3,7 +3,7 @@
     ViewBag.Title = "ProductDetails";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<div class="row">
+<div class="row productAd">
     <div class="col-md-3">
         <h2>@Model.Product.Title</h2>
         @if (Model.Avatar != null)
@@ -52,6 +52,24 @@
                 </div>
                 <input type="file" name="avatar"/>
                 <input type="submit" value="save"/>
+            }
+        </div>
+    </div>
+    <div class="col-md-12 photoBlock">
+        @foreach (var item in Model.Photos)
+        {
+            <div class="photoItem">
+                <img src="@item.Path" alt=""/>
+                <a>remove</a>
+            </div>
+        }
+        <div class="photoItem">
+            @using (Html.BeginForm("AddPhoto","Admin",FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.Hidden("pId",Model.Product.Id)
+                <input type="file" name="photo" multiple="multiple"/>
+                <input type="submit" value="add"/>
             }
         </div>
     </div>

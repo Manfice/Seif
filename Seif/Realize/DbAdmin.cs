@@ -80,8 +80,13 @@ namespace Seif.Realize
         public void EditProductHead(Product model, ProductImage img)
         {
             var p = _context.Products.Find(model.Id);
+            
             if (img!=null)
             {
+                var aaa =
+                    _context.ProductImages.Where(image => image.Product == p && image.PhotoType == PhotoType.Avatar)
+                        .ToList();
+                _context.ProductImages.RemoveRange(aaa);
                 img.Product = p;
                 _context.ProductImages.Add(img);
             }
@@ -107,6 +112,24 @@ namespace Seif.Realize
             _context.ProductImages.Add(ava);
             _context.SaveChanges();
             return p.Id;
+        }
+
+        public void AddPhoto(ProductImage photo)
+        {
+            _context.ProductImages.Add(photo);
+            _context.SaveChanges();
+        }
+
+        public void RemoveImage(int id)
+        {
+            var i = _context.ProductImages.Find(id);
+            _context.ProductImages.Remove(i);
+            _context.SaveChanges();
+        }
+
+        public ProductImage GetImage(int id)
+        {
+            return _context.ProductImages.Find(id);
         }
     }
 }

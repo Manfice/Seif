@@ -1,0 +1,89 @@
+﻿@using Seif.Models.SeifData
+@model Seif.ViewModels.ProductDetailsVm
+@{
+    var product = Model.Product;
+    ViewBag.Title = product.Title;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.descr = product.Descroption;
+    var ava = product.Images.FirstOrDefault(image => image.PhotoType == PhotoType.Avatar);
+    var photos = product.Images.Where(image => image.PhotoType == PhotoType.Photo).ToList();
+    var cartItem = Model.Cart.CartItems.FirstOrDefault(item => item.Product.Id == product.Id);
+}
+@section links
+{
+    <link href="~/Content/jquery.fancybox-buttons.css" rel="stylesheet"/>
+    <link href="~/Content/jquery.fancybox-thumbs.css" rel="stylesheet"/>
+    <link href="~/Content/jquery.fancybox.css" rel="stylesheet"/>
+}
+
+<div class="productDetails">
+    <div class="productRow">
+        <ul>
+            <li>
+                <h1>@product.Title</h1></li>
+            <li>
+                <h3>артикул: @product.Articul</h3></li>
+        </ul>
+        <div class="pHead">
+            <div class="pAvatar">
+                @if (ava != null)
+                {
+                    <img src="@ava.Path" alt=""/>
+                }
+            </div>
+            <div class="priceBlock">
+                <table>
+                    <thead>
+                    <tr>
+                        <td>Ширина</td>
+                        <td>Высота</td>
+                        <td>Глубина</td>
+                        <td>Вес</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>@(product.Width)мм.</td>
+                        <td>@(product.Height)мм.</td>
+                        <td>@(product.Depht)мм.</td>
+                        <td>@(product.Weight)кг.</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <p>@product.Descroption</p>
+                @if (cartItem != null)
+                {
+                    <p>В корзине <span>@(cartItem.Quantity)шт.</span> на сумму <span>@(cartItem.SubTotal)р.</span></p>
+                }
+                <ul class="pControl">
+                    <li><a href="@ViewBag.ru#@product.Id">Назад</a></li>
+                    <li><a>@(product.Price)р.</a></li>
+                    <li><a href="@Url.Action("AddToCart","Cart", new {pId=product.Id, returnUrl=Request.Url.PathAndQuery})">@(cartItem!=null?"Добавить": "Купить")</a></li>
+                </ul>
+            </div>
+        </div>
+
+        @if (photos.Count > 0)
+        {
+            <div class="aditionalPhotos">
+                @foreach (var item in photos)
+                {
+                    <div class="padItem">
+                        <a class="funShow" title="@item.Product.Title" href="@Url.Content(item.Path)"><img alt="" src="@item.Path"/></a>
+                    </div>
+                }
+            </div>
+        }
+        @Html.Raw(@product.HtmlDescr)
+    </div>@*Стой дальше нельзя*@
+</div>
+
+@section scripts
+{
+    <script src="~/Scripts/jquery.fancybox-buttons.js"></script>
+    <script src="~/Scripts/jquery.fancybox-media.js"></script>
+    <script src="~/Scripts/jquery.fancybox-thumbs.js"></script>
+    <script src="~/Scripts/jquery.fancybox.js"></script>
+    <script src="~/Scripts/jquery.mousewheel-3.0.6.pack.js"></script>
+    <script src="~/Scripts/main.js"></script>
+}

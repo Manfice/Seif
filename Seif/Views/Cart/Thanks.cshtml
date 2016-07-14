@@ -1,0 +1,55 @@
+﻿@model Seif.Models.SeifData.Order
+@{
+    ViewBag.Title = "Спасибо за покупку.";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var i = 0;
+}
+
+@if (!User.Identity.IsAuthenticated)
+{
+    <h1>Спасибо</h1>
+}
+else
+{
+    <div class="thancks">
+        <h1>Cпасибо</h1>
+        <h3>Ваша заявка принята</h3>
+        <p>В ближайшее время наш менеджер свяжется с Вами по телефону @Model.Phone для уточнения оплаты и доставки.</p>
+        <p>На указанную Вами почту (@Model.Email) отправлено письмо с ссылкой на ваш заказ. Перейдя по ссылке Вы сможете отследить Ваш заказ.</p>
+        <h1>Ваша заявка:</h1>
+        <h3>№@Model.Id от @Model.OrderDAte.Date.ToLongDateString()</h3>
+        <table class="table table-responsive table-striped">
+            <thead>
+                <tr>
+                    <td>#</td>
+                    <td>Артикул</td>
+                    <td>Наименование</td>
+                    <td>Цена</td>
+                    <td>Кол-во</td>
+                    <td>Сумма</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.CartItems)
+                {
+                    i++;
+                    <tr>
+                        <td>@i</td>
+                        <td>@item.Product.Articul</td>
+                        <td>@item.Product.Title</td>
+                        <td>@item.Product.Price</td>
+                        <td>@item.Quantity</td>
+                        <td>@item.SubTotal</td>
+                    </tr>
+                }
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="5">Итого:</td>
+                    <td>@Model.CartItems.Sum(item => item.SubTotal)</td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+
+}

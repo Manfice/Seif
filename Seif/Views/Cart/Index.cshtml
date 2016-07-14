@@ -1,0 +1,49 @@
+﻿@using Seif.Models.SeifData
+@model Seif.ViewModels.CartViewModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="cartIndex">
+    <h1>Корзина</h1>
+    <div class="cartLines">
+        @foreach (var item in Model.Cart.CartItems)
+        {
+            var p = item.Product;
+            var ava = p.Images.FirstOrDefault(image => image.PhotoType == PhotoType.Avatar);
+            <div class="cartItem">
+                <a title="Удалить из корзины" href="@Url.Action("RemoveFromCart","Cart", new {pId=item.Product.Id, returnUrl=Request.Url.PathAndQuery})"><span class="glyphicon glyphicon-remove-circle"></span></a>
+                @if (ava != null)
+                {
+                    <img src="@Url.Content(ava.Path)" alt=""/>
+                }
+                <ul class="cost">
+                    <li>цена<br/> @p.Price.ToString("C")</li>
+                    <li>сумма<br/> @item.SubTotal.ToString("C")</li>
+                </ul>
+                <ul class="quantity">
+                    <li><a href="@Url.Action("Add", "Cart", new {pId = p.Id, returnUrl = Model.ReturnUrl})">+</a></li>
+                    <li><a href="@Url.Action("Product","Catalog",new {id=item.Product.Id, returnUrl=Request.Url.PathAndQuery})">@item.Quantity</a></li>
+                    <li><a href="@Url.Action("Remove", "Cart", new {pId = p.Id, returnUrl = Model.ReturnUrl})">-</a></li>
+                </ul>
+            </div>
+        }
+    </div>
+    <div class="summaryCart">
+        <p>Выбрано товаров @Model.Cart.CartItems.Count() в количестве @Model.Cart.CalcGoods()шт. на общую сумму @Model.Cart.CalcTotal().ToString("C")</p><a href="/">каталог</a>
+    </div>
+    <div class="persData" id="pers">
+        @using (Html.BeginForm("MakeOrder","Cart", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken();
+            @Html.Label("Ваше имя")<br />
+            @Html.TextBoxFor(model => model.Name)<br />
+            @Html.LabelFor(model => model.Phone)<br />
+            @Html.TextBoxFor(model => model.Phone)<br />
+            @Html.LabelFor(model => model.EMail)<br />
+            @Html.TextBoxFor(model => model.EMail)<br/>
+            <input type="submit" value="отправить заказ" class="persSubmit"/>
+        }
+    </div>
+</div>

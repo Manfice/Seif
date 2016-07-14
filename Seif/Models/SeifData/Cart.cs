@@ -15,12 +15,16 @@ namespace Seif.Models.SeifData
 
         public decimal CalcTotal()
         {
-            return decimal.Round(_lines.Sum(item => item.Price), 2);
+            return decimal.Round(_lines.Sum(item => item.Price*item.Quantity), 2);
         }
 
-        public void RemoveLine(Product product)
+        public int CalcGoods()
         {
-            _lines.RemoveAll(item => item.Product.Id == product.Id);
+            return _lines.Sum(item => item.Quantity);
+        }
+        public void RemoveLine(int id)
+        {
+            _lines.RemoveAll(item => item.Product.Id == id);
         }
 
         public void AddToCart(Product product, int q)
@@ -44,9 +48,11 @@ namespace Seif.Models.SeifData
 
     public class CartItem
     {
-        public Product Product { get; set; }
+        public int Id { get; set; }
+        public virtual Product Product { get; set; }
         public int Quantity { get; set; }
         public decimal Price { get; set; }
         public decimal SubTotal => decimal.Round(Quantity*Price, 2);
+        public virtual Order Order { get; set; }
     }
 }

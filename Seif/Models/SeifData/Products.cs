@@ -47,6 +47,8 @@ namespace Seif.Models.SeifData
         public int Height { get; set; }
         public int Depht { get; set; }
         public decimal Weight { get; set; }
+        public bool Hit { get; set; }
+        public decimal Discount { get; set; }
         public virtual CatalogItem CatalogItem { get; set; }
         public virtual ICollection<ProductImage> Images { get; set; }
 

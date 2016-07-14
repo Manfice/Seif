@@ -1,0 +1,52 @@
+﻿@model Seif.Models.SeifData.Order
+@{
+    ViewBag.Title = "Заказ покупателя";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var i = 0;
+}
+
+<div class="thancks">
+    <div class="ordStatus">
+        <ul>
+            <li class="itemExec"><span>0</span>НОВЫЙ</li>
+            <li class="@(Model.Paid?"itemExec":"itemWait")"><span>1</span>ОПЛАЧЕН</li>
+            <li class="@(Model.Delivery?"itemExec":"itemWait")"><span>2</span>В ДОРОГЕ</li>
+            <li class="@(Model.Closed?"itemExec":"itemWait")"><span>3</span>ЗАКРЫТ</li>
+        </ul>
+    </div>
+    <h1>Ваша заявка:</h1>
+    <h3>№@Model.Id от @Model.OrderDAte.Date.ToLongDateString()</h3>
+    <table class="table table-responsive table-striped">
+        <thead>
+            <tr>
+                <td>#</td>
+                <td>Артикул</td>
+                <td>Наименование</td>
+                <td>Цена</td>
+                <td>Кол-во</td>
+                <td>Сумма</td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.CartItems)
+            {
+                i++;
+                <tr>
+                    <td>@i</td>
+                    <td>@item.Product.Articul</td>
+                    <td>@item.Product.Title</td>
+                    <td>@item.Product.Price</td>
+                    <td>@item.Quantity</td>
+                    <td>@item.SubTotal</td>
+                </tr>
+            }
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="5">Итого:</td>
+                <td>@Model.CartItems.Sum(item => item.SubTotal)</td>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+
