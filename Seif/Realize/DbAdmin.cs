@@ -84,7 +84,7 @@ namespace Seif.Realize
             if (img!=null)
             {
                 var aaa =
-                    _context.ProductImages.Where(image => image.Product == p && image.PhotoType == PhotoType.Avatar)
+                    _context.ProductImages.Where(image => image.Product.Id == p.Id && image.PhotoType == PhotoType.Avatar)
                         .ToList();
                 _context.ProductImages.RemoveRange(aaa);
                 img.Product = p;

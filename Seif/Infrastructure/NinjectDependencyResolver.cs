@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Web.Mvc;
 using Ninject;
+using Ninject.Web.Common;
 using Seif.Realize;
 using Seif.Repos;
 
@@ -28,8 +29,8 @@ namespace Seif.Infrastructure
 
         private void AddBindings()
         {
-            _kernel.Bind<IProducts>().To<DbProducts>().InSingletonScope();
-            _kernel.Bind<IAdmin>().To<DbAdmin>().InSingletonScope();
+            _kernel.Bind<IProducts>().To<DbProducts>().InRequestScope();
+            _kernel.Bind<IAdmin>().To<DbAdmin>().InRequestScope();
         }
     }
 }

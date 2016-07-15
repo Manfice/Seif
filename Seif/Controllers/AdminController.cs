@@ -140,7 +140,7 @@ namespace Seif.Controllers
             ProductImage avatarka = null;
             if (avatar != null)
             {
-                var fileName = avatar.FileName;
+                var fileName = Guid.NewGuid()+"_"+avatar.FileName;
                 var filePath = Server.MapPath("/Content/img/goods/UploadsImages");
                 var fullPath = Path.Combine(filePath, fileName);
                 avatar.SaveAs(fullPath);
