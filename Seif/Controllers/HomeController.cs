@@ -37,13 +37,14 @@ namespace Seif.Controllers
             return View();
         }
 
-        public ActionResult GunCase(Cart cart)
+        public ActionResult GunCase(Cart cart, int i = 1)
         {
             var model = new ProductView
             {
                 Products = _products.GetGunsCase(),
                 Cart = cart
             };
+            ViewBag.tp = i;
             return View(model);
         }
 

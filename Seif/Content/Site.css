@@ -563,6 +563,17 @@ footer a {
     margin: 20px;
     color: whitesmoke; 
 }
+.witchCase {
+    background: url("/Content/img/fon45.png")
+}
+.witchCase ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
 .goodsGuns {
     flex: 0 0 auto;
     display: flex;

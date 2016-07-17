@@ -22,8 +22,14 @@
 <div class="blockTitle">
     <h1>храните оружие правильно</h1>
 </div>
+<div class="witchCase">
+    <ul>
+        <li><a href="@Url.Action("GunCase","Home", new {i=1})">Оружейные сейфы</a></li>
+        <li><a href="@Url.Action("GunCase","Home", new {i=23})">Пистолетные сейфы</a></li>
+    </ul>
+</div>
 <div class="goodsGuns">
-    @foreach (var item in Model.Products.Where(product => product.CatalogItem.Id == 1).OrderBy(product => product.Price))
+    @foreach (var item in Model.Products.Where(product => product.CatalogItem.Id == ViewBag.tp).OrderBy(product => product.Price))
     {
         <div class="gunItem" id="@item.Id">
             <img src="@item.Images.FirstOrDefault(image => image.PhotoType == PhotoType.Avatar).Path" alt="@item.Articul"/>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.IO;
 using System.Linq;
 using System.Web;
@@ -102,7 +103,7 @@ namespace Seif.Controllers
             if (model.CatImage!=null)
             {
                 var fileName = model.CatImage.FileName;
-                var filePath = Server.MapPath("/Content/img/goods/UploadImages");
+                var filePath = Server.MapPath("/Content/img/goods/UploadsImages");
                 var fullPath = Path.Combine(filePath, fileName);
                 model.CatImage.SaveAs(fullPath);
                 model.Catalog.Image = "/Content/img/goods/UploadImages/" + fileName;
@@ -120,7 +121,24 @@ namespace Seif.Controllers
 
         public ActionResult CatItemDetails(int id)
         {
-            return View(_admin.GetCatalogItem(id));
+            var model = _admin.GetCatalogItem(id);
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult UpdateCatItem(CatalogItem model, HttpPostedFileBase avatar)
+        {
+            if (avatar!=null)
+            {
+                var fileName = Guid.NewGuid()+"_"+avatar.FileName;
+                var filePath = Server.MapPath("/Content/img/goods/UploadsImages");
+                var fullPath = Path.Combine(filePath, fileName);
+                avatar.SaveAs(fullPath);
+                model.Image = "/Content/img/goods/UploadsImages/" + fileName;
+            }
+            _admin.UpdateCatItem(model);
+            return RedirectToAction("CatItemDetails",model);
         }
         public ActionResult ProductDetails(int id)
         {
@@ -194,9 +212,17 @@ namespace Seif.Controllers
             _admin.RemoveImage(i.Id);
             return RedirectToAction("ProductDetails", "Admin", new {id = i.Product.Id});
         }
-        public ActionResult AddProduct()
+        public ActionResult AddProduct(int wow)
         {
-            return View(new ProductVm());
+            var ci = _admin.GetCatalogItem(wow);
+            var model = new ProductVm
+            {
+                Product = new Product
+                {
+                    CatalogItem = ci
+                }
+            };
+            return View(model);
         }
     }
 }

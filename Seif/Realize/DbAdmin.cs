@@ -69,6 +69,7 @@ namespace Seif.Realize
             dbCatalogItem.Title = model.Title;
             dbCatalogItem.Descroption = model.Descroption;
             dbCatalogItem.HtmlDescr = model.HtmlDescr;
+            dbCatalogItem.Image = model.Image;
             _context.SaveChanges();
         }
 
@@ -111,7 +112,7 @@ namespace Seif.Realize
             ava.Product = p;
             _context.ProductImages.Add(ava);
             _context.SaveChanges();
-            return p.Id;
+            return p.CatalogItem.Id;
         }
 
         public void AddPhoto(ProductImage photo)

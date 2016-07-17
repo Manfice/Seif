@@ -5,17 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <div class="row">
-    <div class="col-md-3">
-        <h2>@Model.Product.Title</h2>
-        @if (Model.Avatar != null)
-        {
-            <img src="@Url.Content(Model.Avatar.Path)" alt="" class="catImg" />
-        }
-        else
-        {
-            <p>No Images</p>
-        }
-    </div>
+
     <div class="col-md-9">
         <div class="editForm">
             @using (Html.BeginForm("UpdateProduct", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
