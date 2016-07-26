@@ -573,14 +573,22 @@ footer a {
     flex-wrap: wrap;
     justify-content: space-around;
 }
-
+.witchCase ul li a {
+    display: block;
+    padding: 20px;
+    margin: 30px 0 0 0;
+    text-transform: uppercase;
+    font-weight: 900;
+    border: solid 3px dodgerblue;
+    color: dodgerblue;
+}
 .goodsGuns {
     flex: 0 0 auto;
     display: flex;
     flex-flow: row wrap;
     justify-content: space-around;
     background: url("/Content/img/fon45.png");
-    padding: 30px 0;
+    padding: 0;
     font-family: "RobotoBold";
 }
 .gunItem {
@@ -644,17 +652,23 @@ footer a {
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
 }
 .bottomBlock a {
-    flex: 1 0 auto;
+    flex: 0 0 60%;
     color: whitesmoke;
-    padding: 20px;
+    display: block;
+    font-size: 1.3em;
+    padding: 0 20px;
 }
 .bottomBlock a:last-child {
-    flex: 0 0 auto;
+    flex: 0 0 25%;
     background-color: orangered;
     color: whitesmoke;
     padding: 20px;
+    border: solid 1px red;
+    display: block;
 }
 /**/
 /*recl*/
@@ -987,9 +1001,13 @@ footer a {
 }
 /**/
 /**/
-.delivery {
+.deliveryBody {
     flex: 1 0 auto;
     background: url("/Content/img/fon45.png");
+    display: flex;
+    flex-flow: column nowrap;
+}
+.delivery {
     max-width: 1200px;
     width: 100%;
     align-self: center;

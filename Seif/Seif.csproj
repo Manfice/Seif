@@ -319,6 +319,7 @@
     <Content Include="Content\img\goods\UploadsImages\Е-139К1.Е1.Т1.jpg" />
     <Content Include="Content\img\goods\UploadsImages\Е-139К2.Т1.П2.jpg" />
     <Content Include="Content\img\goods\UploadsImages\Е-140К.Т1.jpg" />
+    <Content Include="Content\img\noimage.png" />
     <Content Include="Content\img\wow.jpg" />
     <Content Include="Content\img\baner1.jpg" />
     <Content Include="Content\img\fon45.png" />

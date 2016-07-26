@@ -31,7 +31,7 @@
         }
     </div>
     <div class="summaryCart">
-        <p>Выбрано товаров @Model.Cart.CartItems.Count() в количестве @Model.Cart.CalcGoods()шт. на общую сумму @Model.Cart.CalcTotal().ToString("C")</p><a href="/">каталог</a>
+        <p>Выбрано товаров @Model.Cart.CartItems.Count() в количестве @Model.Cart.CalcGoods()шт. на общую сумму @Model.Cart.CalcTotal().ToString("C")</p><a href="@Url.Content(Model.ReturnUrl)">каталог</a>
     </div>
     <div class="persData" id="pers">
         @using (Html.BeginForm("MakeOrder","Cart", FormMethod.Post))

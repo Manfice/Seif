@@ -37,7 +37,7 @@ namespace Seif.Controllers
         {
             var p = _products.GetProduct(pId);
             cart.AddToCart(p,1);
-            return RedirectToAction("Index","Cart", returnUrl);
+            return RedirectToAction("Index","Cart", new {returnUrl});
         }
 
         public ActionResult RemoveFromCart(Cart cart,int pId, string returnUrl)

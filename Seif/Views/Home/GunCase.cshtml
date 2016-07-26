@@ -32,7 +32,9 @@
     @foreach (var item in Model.Products.Where(product => product.CatalogItem.Id == ViewBag.tp).OrderBy(product => product.Price))
     {
         <div class="gunItem" id="@item.Id">
-            <img src="@item.Images.FirstOrDefault(image => image.PhotoType == PhotoType.Avatar).Path" alt="@item.Articul"/>
+            @{ var ava = item.Images.FirstOrDefault(image => image.PhotoType == PhotoType.Avatar);}
+
+            <img src="@Url.Content(ava!=null? ava.Path:"/Content/img/noimage.png")" alt="@item.Articul"/>
             <ul class="callToAction">
                 @if (item.Hit)
                 {
@@ -69,13 +71,13 @@
                 @if (Model.Cart.CartItems.Any(cartItem => cartItem.Product.Id == item.Id))
                 {
                     var i = Model.Cart.CartItems.FirstOrDefault(cartItem => cartItem.Product.Id == item.Id);
-                    <a href="@Url.Action("AddToCart", "Home", new {prodId = item.Id, q = 1})">В корзине @i.Quantity шт. на сумму @i.SubTotal.ToString("C") </a>
+                    <a href="@Url.Action("Add", "Cart", new {pId = item.Id, returnUrl = Request.Url.PathAndQuery+"#"+item.Id})">В корзине @i.Quantity шт. на сумму @i.SubTotal.ToString("C") </a>
                 }
                 else
                 {
-                    <a href="@Url.Action("AddToCart", "Home", new {prodId = item.Id, q = 1})">Купить за @item.Price.ToString("C")</a>
+                    <a href="@Url.Action("Add", "Cart", new {pId = item.Id, returnUrl = Request.Url.PathAndQuery+"#"+item.Id})">Купить за @item.Price.ToString("C")</a>
                 }
-                <a href="@Url.Action("Product","Catalog", new {id=item.Id, returnUrl=Request.Url.PathAndQuery})"><span>ПОДРОБНЕЕ</span>></a>
+                <a href="@Url.Action("Product", "Catalog", new {id = item.Id, returnUrl = Request.Url.PathAndQuery})"><span>ПОДРОБНЕЕ</span></a>
             </div>
         </div>
     }
